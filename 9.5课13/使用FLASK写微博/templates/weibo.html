@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>微博</title>
+    <!-- 静态文件放在 /static 文件夹中 -->
+    <!-- 引用路径是 /static/... -->
+    <link rel="stylesheet" href="/static/css/pure-min.css">
+    <style type="text/css">
+    .weibo-table {
+        margin: 0 auto;
+    }
+    .center {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="center">
+        <h1>微博</h1>
+        <form action="/add" method="post">
+            <input type="text" placeholder="Add Weibo" name="content">
+            <input class="pure-button pure-button-primary" type="submit" value="Add">
+        </form>
+    </div>
+
+    <table class="weibo-table pure-table pure-table-horizontal pure-table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Content</th>
+                <th>function</th>
+                <th>comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for w in weibos %}
+                <td>{{ w.id }}</td>
+                <!--<td>{{ w.created_time }}</td>-->
+                <td>{{ w.content }}</td>
+                <!-- url_for 可以传递参数，先匹配动态路由，如果动态路由匹配失败则变成 query 参数 -->
+                <td><a href={{ url_for('weibo.delete', weibo_id=w.id) }}>delete</a></td>
+                <td>
+                    <form action={{ url_for('weibo.edit', weibo_id=w.id) }} method="post">
+                    <input type="text" placeholder="修改内容" name="content">
+                    <input type="submit" value="edit">
+                    </form>
+                </td>
+                {% for c in w.comments %}
+
+                <div>
+                    {{ c.content }}
+                     <br>
+                    {% endfor %}
+                </div>
+
+                <td>
+
+                    <form action="/comment/add" method="post">
+                    <input hidden type="text" placeholder="评论" name="weibo_id" value="{{ w.id }}">
+                        <input type="text" name="content">
+                    <button>评论</button>
+                    </form>
+                </td>
+                {% endfor %}
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+</html>

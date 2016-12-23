@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/css/pure-min.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <title>login and register</title>
+  </head>
+  <body>
+    <div class="power-register">
+      <form action="/register" method="post">
+        <input type="text" placeholder="用户名" name="username">
+        <br>
+        <input type="text" placeholder="密码" name="password">
+        <button>没有账号赶紧注册啦</button>
+      </form>
+    </div>
+    <div class="power-login" >
+      <form action="/login" method="post">
+        <input type="text" placeholder="用户名" name="username">
+        <br>
+        <input type="text" placeholder="密码" name="password">
+        <button>登入</button>
+      </form>
+    </div>
+  </body>
+</html>

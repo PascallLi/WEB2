@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 操作</title>
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+</head>
+<body>
+    <input id="id-input-username">
+    <input id="id-input-password">
+    <button id="id-button-submit" type="button">提交</button>
+    <script>
+      var log= function(){
+          console.log(arguments)
+      }
+      var sendLoginRequest = function(username, password)
+          {
+            log(sendLoginRequest, username, password)
+          }
+        $('#id-button-submit').on('click', function(){
+          log('点击到了 button')
+          var username = $('#id-input-username').val()
+          var password = $('#id-input-password').val()
+          log(username, password)
+          sendLoginRequest(username, password)
+        })
+    </script>
+</body>
+</html>

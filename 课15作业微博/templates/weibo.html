@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>POWER's World</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="../static/js/weibo.js"></script>
+  <style >
+    .power-index {
+      background: #f5f5f5;
+    }
+    .power-first-nav {
+        margin: 0 auto;
+        width: 700px;
+    }
+    h1#id-title-line{
+      margin-bottom: 2px;
+      font-size: medium;
+    }
+    h2#id-subtitle-line {
+      margin-top: 2px;
+      font-size: small;
+    }
+    .power-header{
+      position: relative;
+      flex-grow: 1;
+    }
+    .power-flex {
+      display: flex;
+    }
+    .power-nav {
+      flex-grow: 8;
+      margin: 18px 0 0 0;
+    }
+    .nav-item {
+      margin-left: 10px;
+    }
+    .post-title-link {
+    border-left: 1px solid #B7D0E4;
+    display: inline-block;
+    margin-left: -1px;
+    padding: 0px 0px 0px 3px;
+    }
+    .main-inner {
+        margin: 0 auto;
+        width: 700px;
+        margin-top: 80px;
+    }
+    .article-body {
+    background: cadetblue;
+    padding: 5px;
+    border-radius: 5px;
+    }
+    .comments {
+        background: lightsteelblue;
+        border-radius: 5px;
+        border-style: solid;
+        /* border-color: white; */
+        padding: 5px;
+        border: 0;
+        margin: 10px 0;
+    }
+    input {
+        outline: none;
+        border: none;
+        background: lightblue;
+        border-radius: 5px;
+        height: 30px;
+        width: 200px;
+        padding-bottom: 12px;
+    }
+    button {
+        border: none;
+        background: lightpink;
+        height: 30px;
+        border-radius: 5px;
+        width: 100px;
+    }
+    input.power-comment-content {
+        font-size: medium;
+    }
+  </style>
+
+</head>
+  <body>
+    <div class="power-index ">
+        <div class="power-first-nav power-flex">
+          <div class="power-header">
+              <h1 id="id-title-line">POWER's World</h1>
+              <h2 id="id-subtitle-line">Stay Hungry Stay Foolish </h2>
+          </div>
+          <div class="power-nav power-flex">
+              <div class="nav-item">
+                首页
+              </div>
+              <div class="nav-item">
+                作品
+              </div>
+              <div class="nav-item">
+                技术
+              </div>
+              <div class="nav-item">
+                生活
+              </div>
+              <div class="nav-item">
+                书单
+              </div>
+              <div class="nav-item">
+                关于我
+              </div>
+              <div class="nav-item">
+                归档
+              </div>
+              <div class="nav-item">
+                搜索
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content ">
+
+        <div class="content-wrap">
+            <div class="main-inner">
+              <div id="content"class="content">
+                <section id="posts" class="posts-expand">
+                          <h1>树洞</h1>
+                          <div class="input-weibo">
+                            <!-- <form action="/weibo/add" method="post"> -->
+                            <input id="id-input-weibo" type="text" name="content"  placeholder="come on!"> </input>
+                            <br>
+                            <button id="id-button-weibo-add"
+                             type="submit">来吧，少年！</button>
+                             <!-- </form> -->
+                          </div>
+                    <div class="box power-header">
+                        <h2 class="id-subtitle-line"></h2>
+                          {% for w in weibos %}
+                          <div class='edit-comment'>
+                            {{ w.created_time }}
+                            &nbsp;
+
+                            <a href="#" class="post-title-link">&nbsp;编辑</a>
+                            &nbsp;
+
+                            <button class="weibo-delete" data-id= '{{ w.id }}'>删除</button>
+
+                              <div class='comment-api'>
+                                  <form action="/comment/add" method="post">
+                                  <input type="hidden" name="weibo_id" value="{{ w.id }}">
+                                  <input  type="text" name="comment" class="power-comment-content">
+                                  <button type="submit" class="power-comment-button">评论</button>
+                                  </form>
+                              </div>
+
+                            <div class="article-body">
+                            <p>{{ w.content }}</p>
+                            </div>
+
+                        <div class="comments">
+                          {% for c in w.comments %}
+                          {{ c.comment }}
+                          {{ c.created_time }}
+                          <br>
+                          {% endfor %}
+                        </div>
+                        <br>
+                      </div>
+                          {% endfor %}
+                        <div class="reading-all">
+                            <p>
+                              阅读全文 >>
+                            </p>
+                        </div>
+                  </div>
+                </section>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

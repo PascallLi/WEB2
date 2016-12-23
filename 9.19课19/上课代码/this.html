@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>this</title>
+  </head>
+  <body>
+    <button type="button" id="id-button-test">测试用的按钮</button>
+
+    <script>
+      var log = function() {
+        console.log.apply(console, arguments)
+      }
+      var button = document.getElementById('id-button-test')
+      button.addEventListener('click', function(event){
+          log('click log')
+          log(this)
+          log(event.target)
+          // event.target可以规避this
+      })
+      var foo = function() {
+        log('this', this)
+        gua = 1
+        // 调用foo() 其实是调用window.foo(), this就是点前面的window
+        // 谁调用这个函数，this就是谁
+      }
+      a = console.log
+      a.apply(console, [1, 2, 3])
+      a.call(console, 1, 2, 3, 4)
+
+      b = console.log.bind(console)
+      b = a.bind(console)
+      b = log.bind(console)
+
+      // 如果想定义全局变量t
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>css 测试</title>
+    <style>
+      /*元素选择器优先级最低*/
+      div {
+        margin: 20px;
+      }
+      #id-div-box {
+        text-align: center;
+        color: red;
+        position: static;;
+        /*top: 10px;
+        left:100px;*/
+        float: left;
+
+      }
+      #id-div-box2 {
+        /*text-align: center;
+        color: blue;
+        position: static;*/
+        float: left;
+
+      }
+      .box {
+          height: 200px;
+          width: 100px;
+          background: yellow;
+          color: blue;
+          position: static;
+          /*优先级不如id选择器*/
+      }
+      square {
+            position: relative;
+            top: -5px;
+      }
+      p:nth-child(odd){
+        background: lightblue;
+      }
+      p:nth-child(even){
+        background: royalblue;
+      }
+      a:active {
+        background: lightblue;
+      }
+      a:visited {
+        background: yellow;
+      }
+      a:focus {
+        background: black;
+      }
+      a:hover {
+        background: red;
+      }
+    </style>
+  </head>
+<body>
+    <div class="gua-box">
+      <div id="id-div-box" class="box">
+        <p>
+          E = <span>MC</span><square>2</square>质能公式
+        </p>
+      </div>
+    </div>
+    <div id='id-div-box2' class='box' style=";">
+      <button>盒模型2</button>
+      <br>
+      <spn>居中的inline</spn>
+    </div>
+    <div class="gua-lines">
+      <p>
+        1
+      </p>
+      <p>
+        2
+      </p>
+      <p>
+        3
+      </p>
+      <p>
+        4
+      </p>
+    </div>
+    <a id='id-a-demo' href='#'>质能公式</a>
+</body>
+
+</html>

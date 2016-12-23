@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>微博</title>
+    <!-- 静态文件放在 /static 文件夹中 -->
+    <!-- 引用路径是 /static/... -->
+    <link rel="stylesheet" href="/static/css/pure-min.css">
+    <style type="text/css">
+    .weibo-table {
+        margin: 0 auto;
+    }
+    .center {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h1>微博</h1>
+        <!-- 注意这里 的 url_for 也是需要加上蓝图名字前缀的 -->
+        <form action={{ url_for("todo.add") }} method="post">
+            <input type="text" placeholder="Add Weibo" name="content">
+            <input class="pure-button pure-button-primary"
+                   type="submit" value="Add">
+        </form>
+    </div>
+
+    <table class="weibo-table pure-table pure-table-horizontal pure-table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>id</th>
+                <th>Time</th>
+                <th>Content</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for w in weibos %}
+            <tr>
+                <td>{{ t.id }}</td>
+                <td>{{ t.created_time }}</td>
+                <td>{{ t.content }}</td>
+                <!-- url_for 可以传递参数，先匹配动态路由，如果动态路由匹配失败则变成 query 参数 -->
+                <td><a href={{ url_for('weibo.delete', weibo_id=w.id) }}>delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

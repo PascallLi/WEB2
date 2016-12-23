@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>css Test</title>
+<style type="text/css">
+
+.clearFix::after {
+  clear: both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  content: "";
+}
+
+
+#bigBox {
+    border: 2px solid Gray;
+    width: 500px;
+    height: 400px;
+    margin: 100px auto;
+    /*position: relative;*/
+
+}
+p {
+    background-color: red;
+}
+#box1{
+    background: yellow;
+    width: 100px;
+    height: 100px;
+    float: left;
+    /*position: relative;*/
+
+
+}
+
+#box2{
+    background: SkyBlue;
+    width: 120px;
+    height: 100px;
+    float: left;
+    /*position: absolute;;*/
+    /*top: -140px;*/
+    left: 50px;
+    top:40px;
+
+}
+
+#box3{
+    background: pink;
+    width: 140px;
+    height: 100px;
+    /*float: left;*/
+    /*position: absolute;*/
+    /*overflow: hidden;*/
+    left: 80px;
+    top: 20px;
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- <div id="bigBox" class="clearFix"> -->
+<div id="bigBox">
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+    <!-- <div id="box3">3</div> -->
+    <p>HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! 10个HelloWorld！
+    HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld! HelloWorld!
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+2016/09/05 19:50:28 msg view 请求方法 GET
+2016/09/05 19:50:28 request, query 参数 ImmutableMultiDict([])
+2016/09/05 19:52:55 msg view 请求方法 GET
+2016/09/05 19:52:55 request, query 参数
+ImmutableMultiDict(
+[('a', '1'), ('b', '2'), ('c', 'gua')])
+2016/09/05 19:53:33 msg view 请求方法 GET
+2016/09/05 19:53:33 request, query 参数 ImmutableMultiDict([('a', '1'), ('b', '2'), ('c', 'gua')])
+2016/09/05 19:59:31 message_add 请求方法 POST
+2016/09/05 19:59:31 request, POST 的 form 表单数据
+ ImmutableMultiDict([('msg_post', 'gw ')])
+2016/09/05 19:59:31 msg view 请求方法 GET
+2016/09/05 19:59:31 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:01:13 message_add 请求方法 POST
+2016/09/05 20:01:13 request, POST 的 form 表单数据 ImmutableMultiDict([('msg_post', '瓜')])
+2016/09/05 20:01:14 msg view 请求方法 GET
+2016/09/05 20:01:14 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:01:35 msg view 请求方法 GET
+2016/09/05 20:01:35 request, query 参数 ImmutableMultiDict([('a', '1'), ('b', '2'), ('c', 'gua')])
+2016/09/05 20:02:07 msg view 请求方法 GET
+2016/09/05 20:02:07 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:02:08 msg view 请求方法 GET
+2016/09/05 20:02:08 request, query 参数 ImmutableMultiDict([('a', '1'), ('b', '2'), ('c', 'gua')])
+2016/09/05 20:02:37 msg view 请求方法 GET
+2016/09/05 20:02:37 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:02:51 msg view 请求方法 GET
+2016/09/05 20:02:51 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:09:11 msg view 请求方法 GET
+2016/09/05 20:09:11 request, query 参数 ImmutableMultiDict([('msg', '阿斯扥')])
+2016/09/05 20:09:18 message_add 请求方法 POST
+2016/09/05 20:09:18 request, POST 的 form 表单数据 ImmutableMultiDict([('msg_post', '123 ')])
+2016/09/05 20:09:18 msg view 请求方法 GET
+2016/09/05 20:09:18 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:09:19 message_add 请求方法 POST
+2016/09/05 20:09:19 request, POST 的 form 表单数据 ImmutableMultiDict([('msg_post', '')])
+2016/09/05 20:09:19 msg view 请求方法 GET
+2016/09/05 20:09:19 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:09:19 message_add 请求方法 POST
+2016/09/05 20:09:19 request, POST 的 form 表单数据 ImmutableMultiDict([('msg_post', '')])
+2016/09/05 20:09:19 msg view 请求方法 GET
+2016/09/05 20:09:19 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:09:19 message_add 请求方法 POST
+2016/09/05 20:09:19 request, POST 的 form 表单数据 ImmutableMultiDict([('msg_post', '')])
+2016/09/05 20:09:19 msg view 请求方法 GET
+2016/09/05 20:09:19 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:09:21 message_add 请求方法 POST
+2016/09/05 20:09:21 request, POST 的 form 表单数据 ImmutableMultiDict([('msg_post', '123')])
+2016/09/05 20:09:21 msg view 请求方法 GET
+2016/09/05 20:09:21 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:09:23 message_add 请求方法 POST
+2016/09/05 20:09:23 request, POST 的 form 表单数据 ImmutableMultiDict([('msg_post', '放到')])
+2016/09/05 20:09:23 msg view 请求方法 GET
+2016/09/05 20:09:23 request, query 参数 ImmutableMultiDict([])
+2016/09/05 20:09:45 msg view 请求方法 GET
+2016/09/05 20:09:45 request, query 参数 ImmutableMultiDict([])

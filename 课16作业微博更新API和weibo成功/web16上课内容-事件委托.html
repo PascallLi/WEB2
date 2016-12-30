@@ -10,9 +10,8 @@
             // 事件发生的时候执行回调函数
             $('#id-button-name').on('click', function(){
                 console.log('click #id-button-name');
-
                 var msg = '你好';
-                多行字符串使用反引号
+                // 多行字符串使用反引号
                 var t = `
                     <div class="gua-message-cell">
                         ${msg}
@@ -20,7 +19,7 @@
                     </div>
                 `;
                 // 上面的模板字符串会根据变量生成字符串
-                console.log('es6 模板字符串', t);
+                // console.log('es6 模板字符串', t);
                 // 然后 append 到 body 中
                 $('.gua-message-container').append(t);
 
@@ -29,6 +28,7 @@
             // 给删除按钮添加绑定事件
             $('.gua-delete').on('click', function(){
                 // 浏览器终端中才能看到的输出
+
                 console.log('点击了删除按钮')
             })
 
@@ -39,7 +39,8 @@
             // 所以, 所有动态添加的元素的事件都应该这样写
             // 注意看, 这里是把事件绑定在 body 中
             // 但是 on 函数多了第二个参数, 也就是要响应事件的元素, 这里是 .gua-delete
-            $('body').on('click', '.gua-delete', function(){
+            $('.gua-message-container').on('click', '.gua-delete', function(){
+                $(this).closest('.gua-message-cell').slideUp()
                 console.log('事件委托的点击事件')
             });
         };

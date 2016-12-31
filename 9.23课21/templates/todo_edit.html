@@ -6,6 +6,8 @@
 </head>
 <body>
     <div>
+         <!-- 如果不用蓝图url_for的话只能手拼 action="/todo/update/{{todo.id}}" -->
+         <!-- 更改todo-todos的话全部都要改 -->
         <form action="{{ url_for('.update', id=todo.id) }}" method="post">
             <input type="text" name="task" value="{{ todo.task }}">
             <button>更新</button>

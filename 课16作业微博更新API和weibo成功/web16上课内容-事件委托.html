@@ -37,7 +37,7 @@
             // 因为有的元素是事后动态添加的, 在第一次绑定的时候他们并未存在
             // 所以要把事件绑定在一个预先存在的父节点中, 这个概念叫事件委托
             // 所以, 所有动态添加的元素的事件都应该这样写
-            // 注意看, 这里是把事件绑定在 body 中
+            // 注意看, 这里是把事件绑定在 body(gua-message-container)中
             // 但是 on 函数多了第二个参数, 也就是要响应事件的元素, 这里是 .gua-delete
             $('.gua-message-container').on('click', '.gua-delete', function(){
                 $(this).closest('.gua-message-cell').slideUp()

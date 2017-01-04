@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>todo js</title>
-    <link rel="stylesheet" href="/pure-min.css">
+    <link rel="stylesheet" href="./pure-min.css">
     <style type="text/css">
       .todo-table {
         margin: 0 auto;
       }
       .center {
-        margin: 0 auto;
+        text-align: center;
       }
     </style>
     <script src="http://cdn.bootcss.com/jquery/3.0.0/jquery.js"></script>
     <script>
         var __main = function() {
-          $('.button').on('click', function(){
-            console.log('触发Button')
+          $('.button-name').on('click', function(){
+            console.log('触发Button');
+            var id = $(this).closest('container').find('.num').val();
+            var id = Number(id) + Number(1);
+            console.log('id==', id);
+            var task = $('.task').val();
+            var action = 'action';
+
+           var model = `
+           <tr class="tr">
+             <td>${id}</td>
+             <td>${task}</td>
+             <td>${action}</td>
+           </tr>
+           `;
+           $('.todo-table').append(model);
           })
-        }
+        };
+        $(document).ready(function(){
+          console.log('ready');
+          __main();
+
+        });
     </script>
   </head>
   <body>
     <div class="center">
         <h1>To do</h1>
         <div class="container">
-          <input type="text" placeholder="Add Todo" name="task">
+          <input class="task" type="text" placeholder="Add Todo" >
+          <input class='num' value= 0 type="hidden">
           <input class="button-name pure-button pure-button-primary"type="submit" name="button" >
         </div>
-        <table class="todo-table pure-table "></table>
+    </div>
+        <table class="todo-table pure-table ">
         <thread>
           <tr>
             <th>#</th>
@@ -36,11 +57,14 @@
             <th>Action</th>
           </tr>
         </thread>
-        <tbody>
+        <!-- <tbody>
+         <tr>
           <td>{{ id }}</td>
           <td>{{ task }}</td>
           <td>{{ action }}</td>
-        </tbody>
-    </div>
+         </tr>
+        </tbody> -->
+       </table>
+
   </body>
 </html>

@@ -1,7 +1,7 @@
+import time
+
 from . import ModelMixin
 from . import db
-from . import timestamp
-# init里面的东西都在.里
 
 
 class Todo(db.Model, ModelMixin):
@@ -18,7 +18,7 @@ class Todo(db.Model, ModelMixin):
     def __init__(self, form):
         print('chest init', form)
         self.task = form.get('task', '')
-        self.created_time = timestamp()
+        self.created_time = int(time.time())
 
     def update(self, form):
         self.task = form.get('task', '')

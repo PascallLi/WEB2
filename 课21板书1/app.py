@@ -2,30 +2,23 @@ from flask import Flask
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
+
 from models import db
 # 这里 import 具体的 Model 类是为了给 migrate 用
 # 如果不 import 那么无法迁移
 # 这是 SQLAlchemy 的机制
 from models.todo import Todo
 from models.user import User
-from models.node import Node
-from models.topic import Topic
 
-# 注册路由函数
 from routes.todo import main as routes_todo
-from routes.node import main as routes_node
-from routes.topic import main as routes_topic
-
+# from routes.admin_views import admin
+# from routes.chest_views import chest
+# from routes.question_views import question
+# from routes.topic_views import topic
 
 app = Flask(__name__)
 db_path = 'todo.sqlite'
 manager = Manager(app)
-
-
-def register_routes(app):
-    app.register_blueprint(routes_todo, url_prefix='/todo')
-    app.register_blueprint(routes_node, url_prefix='/node')
-    app.register_blueprint(routes_topic, url_prefix='/topic')
 
 
 def configure_app():
@@ -33,22 +26,17 @@ def configure_app():
     app.secret_key = 'secret key'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(db_path)
     db.init_app(app)
-    # 注册蓝图
-    register_routes(app)
+    app.register_blueprint(routes_todo, url_prefix='/todo')
 
 
 def configured_app():
     configure_app()
     return app
 
-
 # 自定义的命令行命令用来运行服务器
 @manager.command
-#装饰器，注册一个新的函数命令
 def server():
-    print('server run')
-    # app = configured_app()
-    # configured_app() 就是先数据库迁移过再得到app，不需要
+    app = configured_app()
     config = dict(
         debug=True,
         host='0.0.0.0',
@@ -69,5 +57,3 @@ if __name__ == '__main__':
     configure_manager()
     configure_app()
     manager.run()
-
-# gunicorn -b '0.0.0.0:80' redischat:app

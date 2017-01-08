@@ -6,11 +6,8 @@
 </head>
 <body>
     <div>
-        <!-- action="/todo/update/{{todo.id}}" -->
         <form action="{{ url_for('.update', id=todo.id) }}" method="post">
-            <!-- <input type="text" name="task" value="{{ todo.task }}"> -->
-            <input type="text" name="task" >
-            # todo.task 是index页面的默认值
+            <input type="text" name="task" value="{{ todo.task }}">
             <button>更新</button>
         </form>
     </div>
